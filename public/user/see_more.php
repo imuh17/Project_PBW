@@ -1,3 +1,22 @@
+<?php
+$servername = "localhost";
+$username = "root"; // Ganti dengan username database Anda
+$password = ""; // Ganti dengan password database Anda
+$dbname = "filmyfy";
+
+// Membuat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Mengecek koneksi
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$id = $_GET["id_film"];
+$query = "SELECT * FROM film WHERE id_film = '$id'";
+$result = mysqli_query($conn,$query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,10 +37,10 @@
           </div>
           <ul class="flex space-x-4">
             <li class="mx-4">
-              <a class="text-white" href="index.html#">Home</a>
+              <a class="text-white" href="index.php#home">Home</a>
             </li>
             <li class="mx-4">
-              <a class="text-white" href="index.html#Film">Film</a>
+              <a class="text-white" href="index.php#Film">Film</a>
             </li>
           </ul>
           <div>
@@ -37,39 +56,32 @@
     </header>
     <!-- NAVBAR END -->
     <!-- Content Start -->
+    <?php while($row=mysqli_fetch_assoc($result)): ?>
     <div class="poster max-w-5xl mt-10">
       <div class="grid grid-cols-3 gap-8 p-4">
         <div class="col-span-1">
           <img
-            src="https://m.media-amazon.com/images/I/71khjV-MoOS._AC_UF894,1000_QL80_.jpg"
+            src="../../assets/img/<?= $row['gambar'] ?>"
             alt=""
             class="rounded-lg"
           />
         </div>
         <div class="col-span-2 mt-4">
-          <p class="text-3xl font-semibold">The Godfather</p>
+          <p class="text-3xl font-semibold"><?= $row['judul_film'] ?></p>
           <br />
-          <h2 class="font-semibold text-lg">175 Minutes</h2>
+          <h2 class="font-semibold text-lg"><?= $row['durasi'] ?></h2>
           <div class="text-sm">
-            <p>Genre <span>: Drama, Kriminal</span></p>
-            <p>Rating <span>: 9.2/10</span></p>
-            <p>Produser <span>: Albert S. Ruddy</span></p>
-            <p>Sutradara <span>: Francis Ford Coppola</span></p>
-            <p>Penulis <span>: Mario Puzo</span></p>
+            <p>Genre <span>: <?= $row['genre'] ?></span></p>
+            <p>Rating <span>: <?= $row['rating'] ?></span></p>
+            <p>Produser <span>: <?= $row['produser'] ?></span></p>
+            <p>Sutradara <span>: <?= $row['sutradara'] ?></span></p>
+            <p>Penulis <span>: <?= $row['penulis'] ?></span></p>
           </div>
           <br />
           <h2 class="text-2xl font-semibold">Sinopsis</h2>
           <br />
           <p class="text-justify text-gray-600 text-sm">
-            Film ini mengisahkan tentang keluarga mafia Italia-Amerika,
-            Corleone, yang dipimpin oleh Vito Corleone (diperankan oleh Marlon
-            Brando). Cerita berfokus pada dinamika kekuasaan dan kehidupan
-            keluarga di dunia kejahatan terorganisir di New York pada periode
-            1945-1955. Ketika Vito Corleone mendekati masa tuanya, ia berusaha
-            mempersiapkan salah satu putranya untuk mengambil alih bisnis
-            keluarga. Namun, putra bungsunya, Michael Corleone (diperankan oleh
-            Al Pacino), awalnya enggan terlibat dalam bisnis keluarga dan
-            memilih hidup sebagai warga negara yang taat hukum.
+          <?= $row['sinopsis'] ?>
           </p>
           <br />
           <button type="button" class="btn bg-yellow-400">
@@ -78,6 +90,7 @@
         </div>
       </div>
     </div>
+    <?php endwhile; ?>
     <!-- Content End -->
   </body>
 </html>

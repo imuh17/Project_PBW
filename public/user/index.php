@@ -1,3 +1,19 @@
+<?php
+$servername = "localhost";
+$username = "root"; // Ganti dengan username database Anda
+$password = ""; // Ganti dengan password database Anda
+$dbname = "filmyfy";
+
+// Membuat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Mengecek koneksi
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$query = "SELECT * FROM film";
+$result = mysqli_query($conn,$query);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +34,8 @@
       <div class="container flex justify-between mx-4">
         <div class="text-white text-xl font-bold">Cinema</div>
         <ul class="flex space-x-4">
-          <li class="mx-4"><a class="text-white" href="#">Home</a></li>
-          <li class="mx-4"><a class="text-white" href="#Film">Film</a></li>
+          <li class="mx-4"><a class="text-white" href="index.php">Home</a></li>
+          <li class="mx-4"><a class="text-white" href="index.php#film">Film</a></li>
         </ul>
         <div>
           <a href="#"
@@ -74,27 +90,26 @@
         <div
           class="film container mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 gap-6 p-4"
         >
+        <?php while($row = mysqli_fetch_assoc($result)): ?>
           <!-- Card 1 -->
           <div
             class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
           >
             <img
               class="w-1/3 h-full object-cover"
-              src="https://m.media-amazon.com/images/I/71khjV-MoOS._AC_UF894,1000_QL80_.jpg"
+              src="../../assets/img/<?= $row['gambar'] ?>"
               alt="Movie Poster"
             />
             <div class="p-6 w-2/3">
-              <h2 class="text-2xl font-bold mb-2">The Godfather</h2>
-              <p class="text-gray-600 mb-2">Genre: Drama, Kriminal</p>
-              <p class="text-gray-600 mb-2">Rating: 9.2/10</p>
+              <h2 class="text-2xl font-bold mb-2"><?= $row['judul_film'] ?></h2>
+              <p class="text-gray-600 mb-2">Genre: <?= $row['genre'] ?></p>
+              <p class="text-gray-600 mb-2">Rating: <?= $row['rating'] ?></p>
               <p class="text-gray-600">
-                Sang patriark tua dari dinasti kejahatan terorganisir
-                mengalihkan kendali kerajaan bawah tanahnya kepada putranya yang
-                enggan.
+                <?= $row['deskripsi_singkat'] ?>
               </p>
             </div>
             <div class="absolute bottom-2 right-6">
-              <a href="seeMore.html"
+              <a href="see_more.php?id_film=<?= $row['id_film'] ?>"
                 ><button
                   class="bg-blue-500 text-white py-2 px-4 rounded whitespace-nowrap"
                 >
@@ -103,149 +118,7 @@
               >
             </div>
           </div>
-
-          <!-- Card 2 -->
-          <div
-            class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
-          >
-            <img
-              class="w-1/3 h-full object-cover"
-              src="https://lh5.googleusercontent.com/proxy/3ranuPtO1Qh0WGyh3eWaMiMyP0ZUlXysd3MPsSfqt-f0LEX6iiTRAVdJ3BirdeYPxM35WSNDbdRGLLdzF6jPf9V3vuRJkmun89I57MeAUmlT"
-              alt="Movie Poster"
-            />
-            <div class="p-6 w-2/3">
-              <h2 class="text-2xl font-bold mb-2">Inside Out 2</h2>
-              <p class="text-gray-600 mb-2">
-                Genre: Animasi, Petualangan, Komedi
-              </p>
-              <p class="text-gray-600 mb-2">Rating: 7.9/10</p>
-              <p class="text-gray-600">
-                Kisah emosi Riley ketika mereka menemukan diri mereka bergabung
-                dengan emosi baru yang ingin mengambil alih kepala Riley.
-              </p>
-            </div>
-            <div class="absolute bottom-2 right-6">
-              <button
-                class="bg-blue-500 text-white py-2 px-4 rounded whitespace-nowrap"
-              >
-                See More
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div
-            class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
-          >
-            <img
-              class="w-1/3 h-full object-cover"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQORAieVd3WE0zCe2brYIu0IP_eAbq_cksyJQ&s"
-              alt="Movie Poster"
-            />
-            <div class="p-6 w-2/3">
-              <h2 class="text-2xl font-bold mb-2">Oppenheimer</h2>
-              <p class="text-gray-600 mb-2">Genre: Biografi, History, Drama</p>
-              <p class="text-gray-600 mb-2">Rating: 8.0/10</p>
-              <p class="text-gray-600">
-                Kisah Seorang Ilmuan yang menemukan bom atom untuk mengakhiri
-                perang dunia 2, saksikan kisah penelitian profesor Oppenheimer
-                disini
-              </p>
-            </div>
-            <div class="absolute bottom-2 right-6">
-              <button
-                class="bg-blue-500 text-white py-2 px-4 rounded whitespace-nowrap"
-              >
-                See More
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div
-            class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
-          >
-            <img
-              class="w-1/3 h-full object-cover"
-              src="https://m.media-amazon.com/images/I/818hyvdVfvL._AC_UF894,1000_QL80_.jpg"
-              alt="Movie Poster"
-            />
-            <div class="p-6 w-2/3">
-              <h2 class="text-2xl font-bold mb-2">The Dark Knight</h2>
-              <p class="text-gray-600 mb-2">Genre: Aksi, Kriminal, Drama</p>
-              <p class="text-gray-600 mb-2">Rating: 9.0/10</p>
-              <p class="text-gray-600">
-                Ketika ancaman yang dikenal sebagai Joker mendatangkan
-                malapetaka dan kekacauan pada masyarakat Gotham, Batman harus
-                melawan ketidakadilan dengan kemampuannya.
-              </p>
-            </div>
-            <div class="absolute bottom-2 right-6">
-              <button
-                class="bg-blue-500 text-white py-2 px-4 rounded whitespace-nowrap"
-              >
-                See More
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div
-            class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
-          >
-            <img
-              class="w-1/3 h-full object-cover"
-              src="https://www.movieposters.com/cdn/shop/products/20664117398ad7301d9a9af6d2e5aa5c_1e3ea98b-b962-4982-9f74-2e44381fc6ff_500x.jpg?v=1573618694"
-              alt="Movie Poster"
-            />
-            <div class="p-6 w-2/3">
-              <h2 class="text-2xl font-bold mb-2">Inception</h2>
-              <p class="text-gray-600 mb-2">Genre: Aksi, Petualangan, Sci-Fi</p>
-              <p class="text-gray-600 mb-2">Rating: 8.8/10</p>
-              <p class="text-gray-600">
-                Seorang pencuri yang mencuri rahasia perusahaan melalui
-                penggunaan teknologi berbagi mimpi diberi tugas sebaliknya yaitu
-                menanamkan ide ke dalam pikiran seorang C.E.O.
-              </p>
-            </div>
-            <div class="absolute bottom-2 right-6">
-              <button
-                class="bg-blue-500 text-white py-2 px-4 rounded whitespace-nowrap"
-              >
-                See More
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div
-            class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
-          >
-            <img
-              class="w-1/3 h-full object-cover"
-              src="https://i.etsystatic.com/23402008/r/il/b658b2/2327469308/il_570xN.2327469308_492n.jpg"
-              alt="Movie Poster"
-            />
-            <div class="p-6 w-2/3">
-              <h2 class="text-2xl font-bold mb-2">Interstellar</h2>
-              <p class="text-gray-600 mb-2">
-                Genre: Petualangan, Drama, Sci-Fi
-              </p>
-              <p class="text-gray-600 mb-2">Rating: 8.7/10</p>
-              <p class="text-gray-600">
-                Ketika Bumi menjadi tidak dapat dihuni di masa depan, seorang
-                petani dan mantan pilot NASA, Joseph Cooper, ditugaskan untuk
-                menemukan planet baru bagi manusia.
-              </p>
-            </div>
-            <div class="absolute bottom-2 right-6">
-              <button
-                class="bg-blue-500 text-white py-2 px-4 rounded whitespace-nowrap"
-              >
-                See More
-              </button>
-            </div>
-          </div>
+        <?php endwhile; ?> 
         </div>
       </div>
     </div>

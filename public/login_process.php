@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root"; // Ganti dengan username database Anda
-$password = ""; // Ganti dengan password database Anda
+$username = "root"; 
+$password = ""; 
 $dbname = "filmyfy";
 
 // Membuat koneksi
