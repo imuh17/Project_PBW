@@ -1,0 +1,12 @@
+body{
+    max-width:100%;
+}
+
+.poster img{
+    width : 400px;
+    height: 460px;
+}
+
+.text-justify{
+    text-align:justify;
+}

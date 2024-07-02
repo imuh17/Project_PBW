@@ -4,27 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleSeeMore.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div class="container grid grid-cols-2 gap-6">
-            <div>
-                <img src="https://m.media-amazon.com/images/I/71khjV-MoOS._AC_UF894,1000_QL80_.jpg" alt="">
+    <!-- NAVBAR START -->
+    <header class="">
+    <nav class="navbar bg-gray-800 p-4 flex items-center sticky">
+        <div class="container flex justify-between mx-4">
+            <div class="text-white text-xl font-bold">
+                    <h2>Cinema</h2>
             </div>
-            <div>
-                <p>Nama</p>
-                <p>Genre</p>
-                <p>Rating</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-2">
+        <ul class="flex space-x-4">
+            <li class="mx-4"><a class="text-white" href="index.html#">Home</a></li>
+            <li class="mx-4"><a class="text-white" href="index.html#Film">Film</a></li>
+        </ul>
         <div>
-            
+            <a href="#"><i class="fa-solid fa-cart-shopping 2xl" style="color: #ffffff;"></i></a>
         </div>
-
+        </div>
+    </nav>
+    </header>
+    <!-- NAVBAR END -->
+    <!-- Content Start -->
+    <div class="poster max-w-5xl mt-10">
+        <div class="grid grid-cols-3 gap-8 p-4">
+            <div class="col-span-1">
+                <img src="https://m.media-amazon.com/images/I/71khjV-MoOS._AC_UF894,1000_QL80_.jpg" alt="" class="rounded-lg">
+            </div>
+            <div class="col-span-2 mt-4">
+                <p class="text-3xl font-semibold">The Godfather</p>
+                <br>
+                <h2 class="font-semibold text-lg">175 Minutes</h2>
+                <div class="text-sm">
+                    <p>Genre <span class="">: Drama, Kriminal</span></p>
+                    <p>Rating <span class="">: 9.2/10</span></p>
+                    <p>Produser <span>: Albert S. Ruddy</span></p>
+                    <p>Sutradara <span>: Francis Ford Coppola</span></p>
+                    <p>Penulis <span>: Mario Puzo</span></p>
+                </div>
+                <br>
+                <h2 class="text-2xl font-semibold">Sinopsis</h2>
+                <br>
+                <p class="text-justify text-gray-600 text-sm">Film ini mengisahkan tentang keluarga mafia Italia-Amerika, Corleone, yang dipimpin oleh Vito Corleone (diperankan oleh Marlon Brando). Cerita berfokus pada dinamika kekuasaan dan kehidupan keluarga di dunia kejahatan terorganisir di New York pada periode 1945-1955.
+                    Ketika Vito Corleone mendekati masa tuanya, ia berusaha mempersiapkan salah satu putranya untuk mengambil alih bisnis keluarga. Namun, putra bungsunya, Michael Corleone (diperankan oleh Al Pacino), awalnya enggan terlibat dalam bisnis keluarga dan memilih hidup sebagai warga negara yang taat hukum.
+                </p>
+                <br>
+                <button type="button" class="btn bg-yellow-400">Pesan Sekarang</button>
+            </div>
+        </div>
     </div>
+    <!-- Content End -->
 </body>
 </html>
