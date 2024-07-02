@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../assets/style/style-user.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../../assets/style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- NAVBAR START -->
+    <nav class="navbar bg-gray-800 p-4 flex items-center w-screen sticky z-50">
+      <div class="container flex justify-between mx-4">
+        <div class="text-white text-xl font-bold">Cinema</div>
+        <ul class="flex space-x-4">
+          <li class="mx-4"><a class="text-white" href="index.php">Home</a></li>
+          <li class="mx-4">
+            <a class="text-white" href="index.php#film">Film</a>
+          </li>
+        </ul>
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-cart-shopping 2xl" style="color: #ffffff"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- NAVBAR END -->
+    <div class="container">
+      <table class="table table-md px-10">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Judul Film</th>
+            <th>Waktu</th>
+            <th>Kursi</th>
+            <th>Jumlah Tiket</th>
+            <th>Harga</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bro Paza Sedang Berpikir Perkara Manuk</td>
+            <td>Interstellar</td>
+            <td>18:00</td>
+            <td>A12</td>
+            <td>4</td>
+            <td>Rp. 240.000</td>
+          </tr>
+          <tr>
+            <td>Hart Hagerty</td>
+            <td>Desktop Support Technician</td>
+            <td>Zemlak, Daniel and Leannon</td>
+            <td>United States</td>
+            <td>12/5/2020</td>
+            <td>Purple</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- testing -->
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Form Ticket!</h3>
+        <p class="py-4">Isi Data Anda</p>
+        <form action="" method=""></form>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>

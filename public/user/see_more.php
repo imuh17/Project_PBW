@@ -17,7 +17,7 @@ $query = "SELECT * FROM film WHERE id_film = '$id'";
 $result = mysqli_query($conn,$query);
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -88,9 +88,45 @@ $result = mysqli_query($conn,$query);
           <?= $row['sinopsis'] ?>
           </p>
           <br />
-          <button type="button" class="btn bg-yellow-400">
-            Pesan Sekarang
-          </button>
+          <button type="button" class="btn bg-yellow-400" onclick="document.getElementById('my_modal_1').showModal()">
+    Pesan Sekarang
+            </button>
+<dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+        <h3 class="text-lg font-bold">Pesan Ticket!</h3>
+        <form action="proses_pesan.php" method="post">
+            <input type="hidden" name="id_film" value="<?= $id ?>">
+            <div class="mb-4">
+                <label for="nama" class="block text-sm font-medium text-gray-700">Nama</label>
+                <input type="text" name="nama" class="mt-1 p-2 w-full border rounded-md" required/>
+            </div>
+            <label for="waktu" class="block text-sm font-medium text-gray-700 mb-2">Waktu</label>
+            <select name="waktu" class="select select-bordered w-full max-w-xs">
+                <option disabled selected>Pilih Waktu Menonton</option>
+                <option value="07.00">07.00</option>
+                <option value="09.00">09.00</option>
+                <option value="12.00">12.00</option>
+                <option value="15.00">15.00</option>
+                <option value="17.00">17.00</option>
+                <option value="19.00">19.00</option>
+            </select>
+            <div class="mb-4">
+                <label for="jumlah_tiket" class="block text-sm font-medium text-gray-700">Jumlah tiket</label>
+                <input type="number" name="jumlah_tiket" class="mt-1 p-2 w-full border rounded-md" required/>
+            </div>
+            <div>
+                <button type="submit" class="btn bg-yellow-400">Pesan!</button>
+            </div>
+        </form>
+        <div class="modal-action">
+            <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+            </form>
+        </div>
+    </div>
+</dialog>
+
         </div>
       </div>
     </div>

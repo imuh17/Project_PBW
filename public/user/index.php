@@ -13,6 +13,24 @@ if ($conn->connect_error) {
 }
 $query = "SELECT * FROM film";
 $result = mysqli_query($conn,$query);
+// Menampilkan pesan sukses
+if (isset($_SESSION['message'])) {
+    echo '<div role="alert" class="alert alert-success">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>' . $_SESSION['message'] . '</span>
+          </div>';
+    unset($_SESSION['message']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +41,6 @@ $result = mysqli_query($conn,$query);
     <link rel="stylesheet" href="../../assets/style/style-user.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../../assets/style/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
   </head>
   <body>
     <!-- NAVBAR START -->
@@ -38,7 +52,7 @@ $result = mysqli_query($conn,$query);
           <li class="mx-4"><a class="text-white" href="index.php#film">Film</a></li>
         </ul>
         <div>
-          <a href="keranjang.html"
+          <a href="cart.php"
             ><i class="fa-solid fa-cart-shopping 2xl" style="color: #ffffff"></i
           ></a>
         </div>
