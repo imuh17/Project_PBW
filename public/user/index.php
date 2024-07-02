@@ -38,7 +38,7 @@ $result = mysqli_query($conn,$query);
           <li class="mx-4"><a class="text-white" href="index.php#film">Film</a></li>
         </ul>
         <div>
-          <a href="#"
+          <a href="keranjang.html"
             ><i class="fa-solid fa-cart-shopping 2xl" style="color: #ffffff"></i
           ></a>
         </div>
