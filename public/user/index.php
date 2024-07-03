@@ -260,8 +260,7 @@ if (isset($_SESSION['message'])) {
         <div class="col-span-1 md:col-span-1">
           <h3 class="text-lg font-semibold mb-2">About Us</h3>
           <p class="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Mahasiswa Trunojoyo yang belajar Pemograman Berbasis Web
           </p>
         </div>
         <div class="col-span-1 md:col-span-1">
@@ -283,9 +282,9 @@ if (isset($_SESSION['message'])) {
         </div>
         <div class="col-span-1 md:col-span-1">
           <h3 class="text-lg font-semibold mb-2">Contact Us</h3>
-          <p class="text-sm">123 Street, City, Country</p>
+          <p class="text-sm">Jalan Pattimura, Bojonegoro, Jawa Timur</p>
           <p class="text-sm">Phone: (123) 456-7890</p>
-          <p class="text-sm">Email: info@example.com</p>
+          <p class="text-sm">Email: imuh123@gmail.com</p>
         </div>
         <div class="col-span-1 md:col-span-1">
           <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
@@ -296,7 +295,7 @@ if (isset($_SESSION['message'])) {
             <a href="#" class="text-gray-400 hover:text-white"
               ><i class="fab fa-twitter fa-2x"></i
             ></a>
-            <a href="#" class="text-gray-400 hover:text-white"
+            <a href="https://www.instagram.com/rizki_afif17/" target="_blank" class="text-gray-400 hover:text-white"
               ><i class="fab fa-instagram fa-2x"></i
             ></a>
             <a href="#" class="text-gray-400 hover:text-white"
