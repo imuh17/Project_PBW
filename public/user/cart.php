@@ -19,13 +19,13 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../../assets/style/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.5.0/dist/full.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Pesanan | Filmyfy</title>
 </head>
 <body>
     <!-- NAVBAR START -->
     <nav class="navbar bg-gray-800 p-4 flex items-center w-screen sticky z-50">
         <div class="container flex justify-between mx-4">
-            <div class="text-white text-xl font-bold">Cinema</div>
+            <div class="italic font-extrabold text-white">Filmyfy</div>
             <ul class="flex space-x-4">
                 <li class="mx-4"><a class="text-white" href="index.php">Home</a></li>
                 <li class="mx-4"><a class="text-white" href="index.php#Film">Film</a></li>

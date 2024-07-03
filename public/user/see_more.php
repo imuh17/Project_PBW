@@ -23,15 +23,15 @@ $result = mysqli_query($conn,$query);
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <title>Document</title>
+    <title>Detail | Filmyfy</title>
   </head>
   <body>
     <!-- NAVBAR START -->
     <header class="">
       <nav class="navbar bg-gray-800 p-4 flex items-center sticky">
         <div class="container flex justify-between mx-4">
-          <div class="text-white text-xl font-bold">
-            <h2>Cinema</h2>
+          <div class="italic font-extrabold text-white">
+            <h2>Filmyfy</h2>
           </div>
           <ul class="flex space-x-4">
             <li class="mx-4">

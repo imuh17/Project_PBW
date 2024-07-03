@@ -6,31 +6,14 @@ if ($conn->connect_error) {
 }
 $query = "SELECT * FROM film";
 $result = mysqli_query($conn,$query);
-// Menampilkan pesan sukses
-if (isset($_SESSION['message'])) {
-    echo '<div role="alert" class="alert alert-success">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 shrink-0 stroke-current"
-                fill="none"
-                viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>' . $_SESSION['message'] . '</span>
-          </div>';
-    unset($_SESSION['message']);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Film ID</title>
+    <title>Home | Filmyfy</title>
     <link rel="stylesheet" href="../../assets/style/style-user.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../../assets/style/style.css" />
@@ -43,7 +26,7 @@ if (isset($_SESSION['message'])) {
     <!-- NAVBAR START -->
     <nav class="navbar bg-gray-800 p-4 flex items-center w-screen sticky z-50">
       <div class="container flex justify-between mx-4">
-        <div class="text-white text-xl font-bold">Cinema</div>
+        <div class="italic font-extrabold text-white">Filmyfy</div>
         <ul class="flex space-x-4">
           <li class="mx-4"><a class="text-white" href="index.php">Home</a></li>
           <li class="mx-4">
@@ -275,13 +258,7 @@ if (isset($_SESSION['message'])) {
               <a href="#" class="text-gray-400 hover:text-white">Home</a>
             </li>
             <li class="mb-1">
-              <a href="#" class="text-gray-400 hover:text-white">About</a>
-            </li>
-            <li class="mb-1">
-              <a href="#" class="text-gray-400 hover:text-white">Services</a>
-            </li>
-            <li class="mb-1">
-              <a href="#" class="text-gray-400 hover:text-white">Contact</a>
+              <a href="index.php#Film" class="text-gray-400 hover:text-white">Services</a>
             </li>
           </ul>
         </div>
