@@ -22,7 +22,7 @@ if (mysqli_num_rows($cek_film_result) > 0) {
     
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Your purchase has been confirmed!";
-        header("Location: index.php?id_film=$id_film");
+        header("Location: cart.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

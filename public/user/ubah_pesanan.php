@@ -14,10 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Jumlah Tiket: " . htmlspecialchars($jumlah_tiket) . "<br>";
 
     // Memastikan input yang diperlukan tidak kosong
-    if (empty($id_pesan) || empty($nama) || empty($waktu) || empty($jumlah_tiket)) {
-        echo "Harap lengkapi semua data.";
-        exit;
-    }
+
 
     // Query untuk mengupdate data pesanan
     $query = "UPDATE pesanan_tiket SET nama=?, waktu=?, jumlah_tiket=? WHERE id_pesan=?";

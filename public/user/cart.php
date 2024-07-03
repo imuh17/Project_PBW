@@ -17,6 +17,8 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../../assets/style/style-user.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../../assets/style/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.5.0/dist/full.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -36,10 +38,7 @@ $result = mysqli_query($conn, $query);
         </div>
     </nav>
     <!-- NAVBAR END -->
-    <?php while($row = mysqli_fetch_assoc($result)): 
-        $total_harga = $row['jumlah_tiket'] * $row['harga'];
-    ?>
-    <div class="container">
+    <div class="">
         <table class="table table-md px-10">
             <thead>
                 <tr>
@@ -52,6 +51,9 @@ $result = mysqli_query($conn, $query);
                 </tr>
             </thead>
             <tbody>
+                <?php while($row = mysqli_fetch_assoc($result)): 
+                    $total_harga = $row['jumlah_tiket'] * $row['harga'];
+                ?>
                 <tr>
                     <td><?= htmlspecialchars($row['nama']) ?></td>
                     <td><?= htmlspecialchars($row['judul_film']) ?></td>
@@ -100,16 +102,35 @@ $result = mysqli_query($conn, $query);
                                 </div>
                             </div>
                         </dialog>
-                        <form action="hapus_pesanan.php" method="post" style="display:inline;">
-                            <input type="hidden" name="id_pesan" value="<?= $row['id_pesan'] ?>" />
-                            <button type="submit" class="btn bg-red-500">Hapus</button>
-                        </form>
+                        <button type="button" class="btn bg-red-500" onclick="showDeleteModal('<?= $row['id_pesan'] ?>', '<?= htmlspecialchars($row['nama']) ?>')">Hapus</button>
                     </td>
                 </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
     </div>
-    <?php endwhile; ?>
-    <!-- testing -->
+
+    <!-- Modal Konfirmasi Hapus -->
+    <dialog id="delete_modal" class="modal">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Hapus <span id="delete_name"></span></h3>
+            <p>Apakah Anda yakin ingin menghapus pesanan ini?</p>
+            <form action="hapus_pesanan.php" method="post">
+                <input type="hidden" name="id_pesan" id="delete_id_pesan" />
+                <div class="modal-action">
+                    <button type="button" class="btn" onclick="document.getElementById('delete_modal').close()">Cancel</button>
+                    <button type="submit" class="btn bg-red-500">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <script>
+        function showDeleteModal(id, name) {
+            document.getElementById('delete_id_pesan').value = id;
+            document.getElementById('delete_name').textContent = name;
+            document.getElementById('delete_modal').showModal();
+        }
+    </script>
 </body>
 </html>
