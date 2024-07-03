@@ -1,5 +1,5 @@
 <?php
-include "../koneksi.php";
+include("koneksi.php");
 
 // Mengecek koneksi
 if ($conn->connect_error) {
@@ -22,8 +22,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     // Verifikasi password
     if (password_verify($password, $row['password'])) {
-        // Jika password benar, arahkan ke halaman lain atau set session
-        header('Location: ./user/index.html');
+        header('Location: ./user/index.php');
         exit();
     } else {
         echo "Invalid password";

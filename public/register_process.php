@@ -1,5 +1,5 @@
 <?php
-include "../koneksi.php";
+include("koneksi.php");
 
 // Mengecek koneksi
 if ($conn->connect_error) {
@@ -15,7 +15,7 @@ $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-    header("Location: login.php");
+    header("Location: login.html");
     exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

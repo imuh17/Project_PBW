@@ -1,12 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Ganti dengan username database Anda
-$password = ""; // Ganti dengan password database Anda
-$dbname = "filmyfy";
-
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+include("../koneksi.php");
 // Mengecek koneksi
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -41,7 +34,10 @@ if (isset($_SESSION['message'])) {
     <link rel="stylesheet" href="../../assets/style/style-user.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../../assets/style/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
   </head>
   <body>
     <!-- NAVBAR START -->
@@ -50,7 +46,9 @@ if (isset($_SESSION['message'])) {
         <div class="text-white text-xl font-bold">Cinema</div>
         <ul class="flex space-x-4">
           <li class="mx-4"><a class="text-white" href="index.php">Home</a></li>
-          <li class="mx-4"><a class="text-white" href="index.php#film">Film</a></li>
+          <li class="mx-4">
+            <a class="text-white" href="index.php#Film">Film</a>
+          </li>
         </ul>
         <div>
           <a href="cart.php"
@@ -105,7 +103,7 @@ if (isset($_SESSION['message'])) {
         <div
           class="film container mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 gap-6 p-4"
         >
-        <?php while($row = mysqli_fetch_assoc($result)): ?>
+          <?php while($row = mysqli_fetch_assoc($result)): ?>
           <!-- Card 1 -->
           <div
             class="bg-white rounded-lg shadow-md overflow-hidden flex relative"
@@ -117,8 +115,14 @@ if (isset($_SESSION['message'])) {
             />
             <div class="p-6 w-2/3">
               <h2 class="text-2xl font-bold mb-2"><?= $row['judul_film'] ?></h2>
-              <p class="text-gray-600 mb-2">Genre: <?= $row['genre'] ?></p>
-              <p class="text-gray-600 mb-2">Rating: <?= $row['rating'] ?></p>
+              <p class="text-gray-600 mb-2">
+                Genre:
+                <?= $row['genre'] ?>
+              </p>
+              <p class="text-gray-600 mb-2">
+                Rating:
+                <?= $row['rating'] ?>
+              </p>
               <p class="text-gray-600">
                 <?= $row['deskripsi_singkat'] ?>
               </p>
@@ -133,7 +137,7 @@ if (isset($_SESSION['message'])) {
               >
             </div>
           </div>
-        <?php endwhile; ?> 
+          <?php endwhile; ?>
         </div>
       </div>
     </div>
@@ -296,7 +300,10 @@ if (isset($_SESSION['message'])) {
             <a href="#" class="text-gray-400 hover:text-white"
               ><i class="fab fa-twitter fa-2x"></i
             ></a>
-            <a href="https://www.instagram.com/rizki_afif17/" target="_blank" class="text-gray-400 hover:text-white"
+            <a
+              href="https://www.instagram.com/rizki_afif17/"
+              target="_blank"
+              class="text-gray-400 hover:text-white"
               ><i class="fab fa-instagram fa-2x"></i
             ></a>
             <a href="#" class="text-gray-400 hover:text-white"
