@@ -1,11 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root"; // Ganti dengan username database Anda
-$password = ""; // Ganti dengan password database Anda
-$dbname = "filmyfy";
-
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
+include ".././koneksi.php";
 
 // Mengecek koneksi
 if ($conn->connect_error) {
